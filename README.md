@@ -4,3 +4,5 @@
 [Personal Website v2](https://theharrychen.github.io/learn-webdev/personal-site-v2/) - More in depth CSS
 
 [TinDog Startup Landing Page](https://theharrychen.github.io/learn-webdev/tindog/) - Bootstrap CSS
+
+[Dice Game](https://theharrychen.github.io/learn-webdev/dice-game/) - Javascript + DOM Practice
