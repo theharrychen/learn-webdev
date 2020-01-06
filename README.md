@@ -1,10 +1,10 @@
 # learn-webdev
-[Personal Website v1](https://theharrychen.github.io/learn-webdev/personal-site-v1/) - Basic HTML and minimal CSS
+<a href="https://theharrychen.github.io/learn-webdev/personal-site-v1" target="_blank">Personal Website v1</a> - Basic HTML and minimal CSS
 
-[Personal Website v2](https://theharrychen.github.io/learn-webdev/personal-site-v2/) - More in depth CSS
+<a href="https://theharrychen.github.io/learn-webdev/personal-site-v2" target="_blank">Personal Website v2</a> - More in depth CSS
 
-[TinDog Startup Landing Page](https://theharrychen.github.io/learn-webdev/tindog/) - Bootstrap CSS
+<a href="https://theharrychen.github.io/learn-webdev/tindog" target="_blank">TinDog App Landing page</a> - Bootstrap CSS
 
-[Dice Game](https://theharrychen.github.io/learn-webdev/dice-game/) - Javascript + DOM Practice
+<a href="https://theharrychen.github.io/learn-webdev/dice-game" target="_blank">Dice Game</a> - Javascript + DOM Practice
 
-[Drum Kit](https://theharrychen.github.io/learn-webdev/drum-kit/) - Javascript, DOM, Event Listeners
+<a href="https://theharrychen.github.io/learn-webdev/drum-kit" target="_blank">Drum Kit</a> - Javascript, DOM, Event Listeners
