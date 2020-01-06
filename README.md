@@ -6,3 +6,5 @@
 [TinDog Startup Landing Page](https://theharrychen.github.io/learn-webdev/tindog/) - Bootstrap CSS
 
 [Dice Game](https://theharrychen.github.io/learn-webdev/dice-game/) - Javascript + DOM Practice
+
+[Drum Kit](https://theharrychen.github.io/learn-webdev/drum-kit/) - Javascript, DOM, Event Listeners
