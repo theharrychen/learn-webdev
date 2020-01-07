@@ -8,3 +8,5 @@
 [Dice Game](https://theharrychen.github.io/learn-webdev/dice-game/) - Javascript + DOM Practice
 
 [Drum Kit](https://theharrychen.github.io/learn-webdev/drum-kit/) - Javascript, DOM, Event Listeners
+
+[Simon Game](https://theharrychen.github.io/learn-webdev/simon-game/) - Javascript, jQuery
