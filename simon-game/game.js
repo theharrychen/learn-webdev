@@ -6,7 +6,7 @@ var userClickedPattern = [];
 var started = false;
 var level = 0;
 
-$(document).keypress(function() { // Used for starting the game
+$(document).keypress(function () { // Used for starting the game
     if (!started) {
         $("#level-title").text("Level " + level);
         nextSequence();
@@ -14,7 +14,7 @@ $(document).keypress(function() { // Used for starting the game
     }
 });
 
-$("#level-title").click(function() { 
+$("#level-title").click(function () {
     if (!started) {
         $("#level-title").text("Level " + level);
         nextSequence();
@@ -22,7 +22,7 @@ $("#level-title").click(function() {
     }
 });
 
-$(".btn").click(function() {
+$(".btn").click(function () {
     var userChosenColor = this.id;
     userClickedPattern.push(userChosenColor);
 
@@ -41,12 +41,12 @@ function checkAnswer(currentLevel) {
         playSound("wrong");
 
         $("body").addClass("game-over");
-        setTimeout(function() {
+        setTimeout(function () {
             $("body").removeClass("game-over");
         }, 200);
 
         $("#level-title").text("GAMEOVER! PRESS any KEY or this TEXT to RESTART!");
-    
+
         startOver();
     }
 }
@@ -57,13 +57,28 @@ function nextSequence() { //Adds random color to the game pattern and plays soun
     level++;
     $("#level-title").text("Level " + level);
 
-    var randomNumber = Math.floor(Math.random()*4); // 0 - 3
+    var randomNumber = Math.floor(Math.random() * 4); // 0 - 3
     var randomChosenColor = buttonColors[randomNumber];
     gamePattern.push(randomChosenColor);
+    playSequence();
 
-    $("#" + randomChosenColor).fadeIn(100).fadeOut(100).fadeIn(100); //Flashes a button
+}
 
-    playSound(randomChosenColor);
+async function playSequence() {
+    await sleep(500);
+    for (var x = 0; x < gamePattern.length; x++) {
+        soundAndAnimate(gamePattern[x]);
+        await sleep(500);
+    }
+}
+
+function sleep(ms) { // Synchronous Delay
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+function soundAndAnimate(color) {
+    $("#" + color).fadeIn(100).fadeOut(100).fadeIn(100); //Flashes a button
+    playSound(color);
 }
 
 function playSound(name) {
@@ -74,7 +89,7 @@ function playSound(name) {
 function animatePress(currentColor) {
     $("#" + currentColor).addClass("pressed");
 
-    setTimeout(function() {
+    setTimeout(function () {
         $("#" + currentColor).removeClass("pressed");
     }, 100); //100ms delay
 }
