@@ -18,3 +18,9 @@ if (randomNumber1 > randomNumber2) {
 } else { //randomNumber1 == randomNumber2
     h1.innerHTML = "Draw!";
 }
+
+//Adding clickable reroll through reloading the page
+var rerollText = document.querySelector(".reroll");
+rerollText.addEventListener("click", function () {
+     location.reload();
+});
