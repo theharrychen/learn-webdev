@@ -13,11 +13,6 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
-window.onbeforeunload = function() { // Saves the high score to browser's local storage
-    localStorage.setItem('highScore', highScore);
-};
-
-
 $("#score-title").click(function () { // Used for starting the game
     if (!started) {
         $("#score-title").text("Score:" + score);
@@ -101,6 +96,7 @@ function startOver() { //Resets game variables
     if (score > highScore) {
         highScore = score;
         $("#high-score").text("High Score:" + highScore);
+        localStorage.setItem('highScore', highScore);
     }
     score = 0;
     gamePattern = [];
