@@ -2,21 +2,25 @@ var buttonColors = ["red", "blue", "green", "yellow"];
 
 var gamePattern = [];
 var userClickedPattern = [];
-
 var started = false;
-var level = 0;
+var score = 0;
+var highScore;
 
-$(document).keypress(function () { // Used for starting the game
-    if (!started) {
-        $("#level-title").text("Level " + level);
-        nextSequence();
-        started = true;
+document.addEventListener("DOMContentLoaded", function() { 
+    highScore = localStorage.getItem("highScore") ? localStorage.getItem("highScore") : 0;
+    if (highScore) {
+        $("#high-score").text("High Score:" + highScore);
     }
 });
 
-$("#level-title").click(function () {
+window.onbeforeunload = function() { // Saves the high score to browser's local storage
+    localStorage.setItem('highScore', highScore);
+};
+
+
+$("#score-title").click(function () { // Used for starting the game
     if (!started) {
-        $("#level-title").text("Level " + level);
+        $("#score-title").text("Score:" + score);
         nextSequence();
         started = true;
     }
@@ -32,9 +36,10 @@ $(".btn").click(function () {
     checkAnswer(userClickedPattern.length - 1);
 });
 
-function checkAnswer(currentLevel) {
-    if (userClickedPattern[currentLevel] === gamePattern[currentLevel]) {
+function checkAnswer(currentScore) {
+    if (userClickedPattern[currentScore] === gamePattern[currentScore]) {
         if (userClickedPattern.length === gamePattern.length) {
+            score++;
             setTimeout(nextSequence, 1000);
         }
     } else { //User got the sequence wrong, game over
@@ -45,7 +50,7 @@ function checkAnswer(currentLevel) {
             $("body").removeClass("game-over");
         }, 200);
 
-        $("#level-title").text("GAMEOVER! PRESS any KEY or this TEXT to RESTART!");
+        $("#score-title").html("GAMEOVER!</br>Click here to RESTART!");
 
         startOver();
     }
@@ -53,9 +58,7 @@ function checkAnswer(currentLevel) {
 
 function nextSequence() { //Adds random color to the game pattern and plays sound
     userClickedPattern = [];
-
-    level++;
-    $("#level-title").text("Level " + level);
+    $("#score-title").text("Score:" + score);
 
     var randomNumber = Math.floor(Math.random() * 4); // 0 - 3
     var randomChosenColor = buttonColors[randomNumber];
@@ -95,7 +98,11 @@ function animatePress(currentColor) {
 }
 
 function startOver() { //Resets game variables
-    level = 0;
+    if (score > highScore) {
+        highScore = score;
+        $("#high-score").text("High Score:" + highScore);
+    }
+    score = 0;
     gamePattern = [];
     started = false;
 }

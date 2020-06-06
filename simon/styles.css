@@ -3,13 +3,20 @@ body {
   background-color: #011f3f;
 }
 
-#level-title {
+#score-title {
   font-family: "Press Start 2P", cursive;
-  font-size: 3rem;
+  font-size: 2.2rem;
   margin: 0 auto;
   color: #fef2bf;
   width: 70%;
   line-height: 1.2;
+  cursor: pointer;
+}
+
+#high-score {
+  font-family: "Press Start 2P", cursive;
+  font-size: 1.5rem;
+  color: #FFD700
 }
 
 .container {
@@ -21,10 +28,11 @@ body {
 .btn {
   margin: 25px;
   display: inline-block;
-  height: 200px;
-  width: 200px;
+  height: 190px;
+  width: 190px;
   border: 10px solid black;
   border-radius: 20%;
+  cursor: pointer;
 }
 
 .game-over {

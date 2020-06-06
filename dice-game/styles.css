@@ -9,6 +9,10 @@
   display: inline-block;
 }
 
+.reroll {
+  cursor: pointer;
+}
+
 body {
   background-color: #393e46;
 }
