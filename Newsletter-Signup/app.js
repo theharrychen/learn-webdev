@@ -19,7 +19,7 @@ app.post("/", function (req, res) {
     const lastName = req.body.lName;
     const email = req.body.email;
 
-    var data = { // JSON for subscribing
+    let data = { // JSON for subscribing
         members: [
             {
                 email_address: email,

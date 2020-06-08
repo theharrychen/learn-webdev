@@ -1,10 +1,10 @@
-var buttonColors = ["red", "blue", "green", "yellow"];
+let buttonColors = ["red", "blue", "green", "yellow"];
 
-var gamePattern = [];
-var userClickedPattern = [];
-var started = false;
-var score = 0;
-var highScore;
+let gamePattern = [];
+let userClickedPattern = [];
+let started = false;
+let score = 0;
+let highScore;
 
 document.addEventListener("DOMContentLoaded", function() { 
     highScore = localStorage.getItem("highScore") ? localStorage.getItem("highScore") : 0;
@@ -22,7 +22,7 @@ $("#score-title").click(function () { // Used for starting the game
 });
 
 $(".btn").click(function () {
-    var userChosenColor = this.id;
+    let userChosenColor = this.id;
     userClickedPattern.push(userChosenColor);
 
     playSound(userChosenColor);
@@ -55,8 +55,8 @@ function nextSequence() { //Adds random color to the game pattern and plays soun
     userClickedPattern = [];
     $("#score-title").text("Score:" + score);
 
-    var randomNumber = Math.floor(Math.random() * 4); // 0 - 3
-    var randomChosenColor = buttonColors[randomNumber];
+    let randomNumber = Math.floor(Math.random() * 4); // 0 - 3
+    let randomChosenColor = buttonColors[randomNumber];
     gamePattern.push(randomChosenColor);
     playSequence();
 
@@ -64,7 +64,7 @@ function nextSequence() { //Adds random color to the game pattern and plays soun
 
 async function playSequence() {
     await sleep(500);
-    for (var x = 0; x < gamePattern.length; x++) {
+    for (let x = 0; x < gamePattern.length; x++) {
         soundAndAnimate(gamePattern[x]);
         await sleep(500);
     }
@@ -80,7 +80,7 @@ function soundAndAnimate(color) {
 }
 
 function playSound(name) {
-    var audio = new Audio("sounds/" + name + ".mp3");
+    let audio = new Audio("sounds/" + name + ".mp3");
     audio.play();
 }
 
@@ -92,7 +92,7 @@ function animatePress(currentColor) {
     }, 100); //100ms delay
 }
 
-function startOver() { //Resets game variables
+function startOver() { //Resets game letiables
     if (score > highScore) {
         highScore = score;
         $("#high-score").text("High Score:" + highScore);
