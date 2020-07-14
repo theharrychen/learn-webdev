@@ -10,6 +10,6 @@ Projects created and deployed as I learn about web development from frontend to 
 | [Dice Game](https://theharrychen.github.io/learn-webdev/dice-game/)                    | JavaScript, DOM Manipulation                                 |
 | [Drum Kit](https://theharrychen.github.io/learn-webdev/drum-kit/)                      | JavaScript, DOM Manipulation, Event Listeners, Audio         |
 | [Simon Game](https://theharrychen.github.io/learn-webdev/simon/)                       | JavaScript, jQuery, Local Browser Storage                    |
-| [Newsletter Sign Up](https://hc-newsletter.herokuapp.com/)                             | Node.js, Express, https requests, MailChimp API              |
-| Todo List  |   Express, EJS (Embedded JavaScript) Templating |
-| Blog |  Express, EJS (Embedded JavaScript) Templating |
+| [Newsletter Sign Up](https://hc-newsletter.herokuapp.com/)                             | Node.js, Express, https requests, MailChimp API, Heroku      |
+| [To Do List](https://hc-todo.herokuapp.com/)                                           | Express, EJS Templating, MongoDB, CRUD                       |
+| Blog |  Express, EJS Templating |
