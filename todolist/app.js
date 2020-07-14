@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
@@ -10,7 +11,7 @@ app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-mongoose.connect("mongodb://localhost:27017/todolistDB", {
+mongoose.connect(process.env.DB_URL || "mongodb://localhost:27017/todolistDB", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: true,
@@ -21,12 +22,6 @@ const itemSchema = new mongoose.Schema({
 });
 
 const Item = new mongoose.model("Item", itemSchema);
-
-const item1 = new Item({ name: "Welcome to your todolist!" });
-const item2 = new Item({ name: "Hit the + button to add a new item." });
-const item3 = new Item({ name: "<-- Hit this to delete an item." });
-
-const defaultItems = [item1, item2, item3];
 
 const listSchema = {
   name: String,
@@ -40,19 +35,7 @@ app.get("/", (req, res) => {
     if (err) {
       console.log(err);
     }
-
-    if (foundItems.length === 0) {
-      Item.insertMany(defaultItems, (err) => {
-        if (err) {
-          console.log(err);
-        } else {
-          console.log("Successfully saved default items to DB.");
-        }
-      });
-      res.redirect("/");
-    } else {
-      res.render("list", { listTitle: "To Do List", newListItems: foundItems });
-    }
+    res.render("list", { listTitle: "To Do List", newListItems: foundItems });
   });
 });
 
@@ -81,7 +64,7 @@ app.post("/delete", (req, res) => {
   if (listName === "To Do List") {
     Item.findByIdAndDelete(checkedItemId, (err) => {
       if (!err) {
-        console.log("Successfully deleted the checked item.");
+        console.log("Successfully deleted a checked item.");
         res.redirect("/");
       }
     });
@@ -98,10 +81,6 @@ app.post("/delete", (req, res) => {
   }
 });
 
-app.get("/about", (req, res) => {
-  res.render("about");
-});
-
 app.get("/:customListName", (req, res) => {
   const customListName = _.capitalize(req.params.customListName);
 
@@ -110,7 +89,7 @@ app.get("/:customListName", (req, res) => {
       if (!foundList) {
         const list = new List({
           name: customListName,
-          items: defaultItems,
+          items: [],
         });
         list.save();
 
@@ -125,6 +104,8 @@ app.get("/:customListName", (req, res) => {
   });
 });
 
-app.listen(3000, () => {
-  console.log("Server started on port 3000");
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+  console.log(`Server started on port ${PORT}`);
 });
