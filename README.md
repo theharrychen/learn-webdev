@@ -12,4 +12,4 @@ Projects created and deployed as I learn about web development from frontend to 
 | [Simon Game](https://theharrychen.github.io/learn-webdev/simon/)                       | JavaScript, jQuery, Local Browser Storage                    |
 | [Newsletter Sign Up](https://hc-newsletter.herokuapp.com/)                             | Node.js, Express, https requests, MailChimp API, Heroku      |
 | [To Do List](https://hc-todo.herokuapp.com/)                                           | Express, EJS Templating, MongoDB, CRUD                       |
-| Blog |  Express, EJS Templating |
+| Blog | Express, EJS Templating, MongoDB |
