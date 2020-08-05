@@ -13,3 +13,4 @@ Projects created and deployed as I learn about web development from frontend to 
 | [Newsletter Sign Up](https://hc-newsletter.herokuapp.com/)                             | Node.js, Express, https requests, MailChimp API, Heroku      |
 | [To Do List](https://hc-todo.herokuapp.com/)                                           | Express, EJS Templating, MongoDB, CRUD                       |
 | Blog | Express, EJS Templating, MongoDB |
+| Wiki Article API | RESTful APIs, Express, MongoDB |
