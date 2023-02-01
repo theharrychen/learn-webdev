@@ -11,6 +11,6 @@
   "license": "ISC",
   "dependencies": {
     "mongodb": "^3.6.4",
-    "mongoose": "^5.13.14"
+    "mongoose": "^5.13.15"
   }
 }
